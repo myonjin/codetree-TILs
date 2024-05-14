@@ -32,16 +32,16 @@ n,s = map(int,input().split()) # n 원소 개수 , s 합 이상
 arr = list(map(int,input().split()))
 ans = 100000000
 sum_val = 0
-j = 0
+j = -1
 for i in range(0, n):
     # 구간 내 합이 s보다 작으면 진행 
-    while j < n and sum_val < s:
-        sum_val += arr[j]
+    while j + 1 < n and sum_val < s:
+        sum_val += arr[j + 1]
         j += 1
     # 최대 이동했는데 s가 못됐을때 
     if sum_val < s:
         break
-    j-=1
+    # j-=1
     ans = min(ans, j - i + 1)
     # print("i는",i,"     j는",j,"답은",j - i + 1)
     sum_val -= arr[i]
