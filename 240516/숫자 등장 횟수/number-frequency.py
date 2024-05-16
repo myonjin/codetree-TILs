@@ -3,7 +3,11 @@ arr = list(map(int,input().split()))
 num = list(map(int,input().split()))
 d = dict()
 for i,e in enumerate(arr):
-    d[e] = i + 1
+    if e not in d:
+        d[e] = 1
+    else:
+        d[e] += 1
+    
 for n in num:
     if n in d:
         print(d[n],end=" ")
